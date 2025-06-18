@@ -1,0 +1,142 @@
+/* --- Hero Section --- */
+.hero-section {
+    text-align: center;
+    padding: 30px 0; /* Sesuaikan padding agar tidak terlalu dekat dengan navbar */
+    width: 100%;
+}
+
+.hero-title {
+    font-size: 7rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.hero-slogan {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: rgba(57, 255, 20, 0.8);
+
+}
+
+.top-hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.top-hero-buttons .terminal-button {
+    font-size: 2dvw;         /* Besar font proporsional dengan lebar layar */
+    padding: 1dvh 1.5dvw;      /* Atas-bawah pakai tinggi layar, kiri-kanan pakai lebar layar */
+    min-width: 18dvw;          /* Tombol minimal 18% dari lebar layar */
+    border-radius: 0.7em;
+    font-weight: bold;
+    box-shadow: 0 0 1.4dvw #39FF1477;
+}
+
+
+.ca-display-box {
+    background-color: rgba(10, 10, 10, 0.8);
+    border: var(--border-width) solid var(--neon-green);
+    box-shadow: 0 0 1.5dvw var(--neon-green), inset 0 0 1.5dvw var(--neon-green);
+    padding: 1.5dvh 6dvw;           /* Atas-bawah pakai dvh, kiri-kanan pakai dvw */
+    border-radius: 30%;
+    display: inline-flex;
+    align-items: center;
+    gap: 3.2dvw;
+    overflow: hidden;
+    position: relative;
+    margin-top: 3.2dvh;
+}
+
+.ca-address {
+    font-size: 2.2dvw;              /* Besarin alamat */
+    color: var(--neon-green);
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3s steps(40, end), blink-caret .75s step-end infinite;
+    border-right: 0.32dvw solid transparent;
+    max-width: 52dvw;               /* Biar responsif */
+}
+
+
+/* Typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* Blinking cursor */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--neon-green); }
+}
+
+.copy-button {
+    background-color: var(--terminal-grey);
+    border: var(--border-width) solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 10px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 0 5px var(--neon-green);
+    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+.copy-button:hover {
+    background-color: var(--neon-green);
+    color: var(--terminal-black);
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+.copy-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 0 2px var(--neon-green);
+}
+
+/* Flickering animation for title */
+@keyframes flicker {
+    0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        opacity: 0.99;
+        text-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green), 0 0 15px var(--neon-green);
+    }
+    20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+        opacity: 0.8;
+        text-shadow: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3em;
+    }
+    .hero-slogan {
+        font-size: 1.2em;
+    }
+    .top-hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .ca-display-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .ca-address {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2.2em;
+    }
+    .hero-slogan {
+        font-size: 1em;
+    }
+    .copy-button {
+        padding: 8px 15px;
+        font-size: 0.9em;
+    }
+}

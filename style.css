@@ -1,0 +1,133 @@
+:root {
+    --neon-green: #39FF14;
+    --terminal-black: #1a1a1a;
+    --darker-terminal-black: #0d0d0d;
+    --terminal-grey: #2a2a2a;
+    --border-radius-sm: 0.33rem;
+    --border-radius-md: 0.67rem;
+    --border-width: 0.13rem;
+    --footer-height: 3.4rem;
+    --navbar-height: 2.4rem;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    color: var(--neon-green);
+    margin: 0;
+    padding-top: var(--navbar-height);
+    padding-bottom: var(--footer-height);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100dvh - var(--footer-height) - var(--navbar-height));
+    text-shadow: 0 0 0.33em var(--neon-green);
+    background-color: var(--darker-terminal-black);
+    background-image: url('components/about/bg.webp');
+    background-size: 120%; /* zoom in gambar, bisa diubah jadi 120%, 150%, dst */
+    background-position: center center; /* posisi tengah */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: "";
+    position: fixed;           /* Supaya selalu nutup layar walau discroll */
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: rgba(10, 20, 10, 0.833); /* Ubah alpha sesuai kebutuhan (0.6 - 0.85) */
+    pointer-events: none;      /* Supaya gak ganggu klik */
+}
+
+/* Pastikan konten utama di atas overlay */
+body > * {
+    position: relative;
+    z-index: 1;
+}
+
+.main-content-area {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.4rem; /* Sama dengan navbar height */
+    padding-bottom: 4rem; /* Lebih dari footer biar ada jarak */
+    box-sizing: border-box;
+}
+
+.container {
+    width: 92vw;
+    max-width: 62rem;
+    margin: 1.4rem auto;
+    padding: 1.4rem;
+    box-sizing: border-box;
+    border-radius: var(--border-radius-md);
+    background: rgba(26, 26, 26, 0.75);
+    box-shadow: 0 0 2.4rem #39ff1411;
+}
+
+footer {
+    background-color: rgba(10, 10, 10, 0.9);
+    color: var(--neon-green);
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--footer-height);
+    box-sizing: border-box;
+    font-size: 0.94em;
+    z-index: 10;
+    border-top: var(--border-width) solid var(--neon-green);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+footer a {
+    color: var(--neon-green);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: rgba(57, 255, 20, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    :root {
+        --navbar-height: 2.1rem;
+        --footer-height: 3.1rem;
+    }
+    .main-content-area {
+        margin-top: 2.1rem;
+        padding-bottom: 3.3rem;
+    }
+    .container {
+        width: 98vw;
+        padding: 1rem;
+        margin: 1rem auto;
+    }
+    footer {
+        font-size: 0.89em;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --navbar-height: 1.7rem;
+        --footer-height: 2.3rem;
+        --border-radius-md: 0.4rem;
+    }
+    .container {
+        width: 100vw;
+        padding: 0.7rem;
+        margin: 0.7rem auto;
+    }
+    footer {
+        font-size: 0.84em;
+    }
+}

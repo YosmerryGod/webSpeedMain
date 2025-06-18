@@ -1,0 +1,105 @@
+:root {
+  --neon-green: #39ff14;
+  --border-radius-sm: 0.7rem;
+}
+
+/* --- Navbar Styles --- */
+.navbar {
+    background-color: rgba(10, 10, 10, 0.265);
+    color: var(--neon-green);
+    width: clamp(60vw, 30vw, 52rem);
+    min-width: 12rem;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5vw;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1000;
+    border-bottom: 0.14rem solid var(--neon-green);
+    border-radius: 0 0 20% 20%;
+    font-size: 1rem;
+    transition:
+      transform 0.36s cubic-bezier(0.42,0,0.58,1),
+      opacity 0.2s;
+    will-change: transform, opacity;
+    opacity: 1;
+    pointer-events: auto;
+    box-shadow: 0 1.5rem 4rem #39ff1433;
+}
+
+/* Hide: naik ke atas, fade out */
+.navbar.hide {
+    transform: translate(-50%, -130%);
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+/* Show: muncul turun dari atas */
+.navbar.show {
+    transform: translate(-50%, 0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2.5vw;
+    width: 100%;
+    justify-content: center;
+}
+
+.navbar-links a {
+    color: var(--neon-green);
+    text-decoration: none;
+    padding: 0.3em 1.3em;
+    border: 0.1rem solid transparent;
+    border-radius: var(--border-radius-sm);
+    transition: border-color 0.17s, text-shadow 0.22s, background 0.15s;
+    font-family: 'Fira Mono', Consolas, monospace;
+    letter-spacing: 0.03em;
+    font-weight: 500;
+    font-size: 1.09em;
+}
+
+.navbar-links a:hover, .navbar-links a:focus {
+    border-color: var(--neon-green);
+    text-shadow: 0 0 1.5rem var(--neon-green), 0 0 0.13rem #fff3;
+    background: rgba(57,255,20,0.08);
+}
+
+/* Responsive: Tablet & down */
+@media (max-width: 900px) {
+    .navbar {
+        width: 98vw;
+        min-width: 0;
+        border-radius: 0 0 12% 12%;
+        font-size: 1.04rem;
+        padding: 0 6vw;
+        height: 3rem;
+    }
+    .navbar-links {
+        gap: 4vw;
+    }
+    .navbar-links a {
+        padding: 0.3em 0.7em;
+        font-size: 1em;
+    }
+}
+/* Responsive: Mobile */
+@media (max-width: 560px) {
+    .navbar {
+        width: 100vw;
+        border-radius: 0 0 10% 10%;
+        padding: 0 2vw;
+        font-size: 0.99rem;
+        height: 2.5rem;
+    }
+    .navbar-links {
+        gap: 2vw;
+    }
+}

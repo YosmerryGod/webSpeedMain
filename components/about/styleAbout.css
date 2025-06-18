@@ -1,0 +1,327 @@
+/* --- Content Sections --- */
+.terminal-card {
+    background-color: rgba(10, 10, 10, 0.8);
+    border: var(--border-width) solid var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green), inset 0 0 10px var(--neon-green);
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    width: 90%;
+    max-width: 700px;
+    position: relative;
+    margin-bottom: 30px;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Container for expandable content */
+.expandable-content-container {
+    width: 90%;
+    max-width: 700px;
+    overflow: hidden;
+    transition: height 0.7s ease-in-out, opacity 0.7s ease-in-out;
+    height: 0;
+    opacity: 0;
+    margin-bottom: 30px;
+}
+
+.expandable-content-container.expanded {
+    height: auto;
+    opacity: 1;
+}
+
+.expandable-content-card {
+    background-color: rgba(10, 10, 10, 0.8);
+    border: var(--border-width) solid var(--neon-green);
+    box-shadow: 0 0 10px var(--neon-green), inset 0 0 10px var(--neon-green);
+    padding: 30px;
+    border-radius: var(--border-radius-md);
+    position: relative;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.expandable-content-card > div {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.expandable-content-card > div.active-content {
+    display: block;
+    opacity: 1;
+}
+
+.terminal-card::before, .expandable-content-card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    height: 5px;
+    background-color: rgba(57, 255, 20, 0.2);
+    border-radius: 2px;
+}
+
+.terminal-card::after, .expandable-content-card::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    height: 5px;
+    background-color: rgba(57, 255, 20, 0.2);
+    border-radius: 2px;
+}
+
+.card-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--neon-green);
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.card-description, .card-content {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    text-align: center;
+    color: rgba(57, 255, 20, 0.9);
+}
+
+.terminal-buttons-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.terminal-button {
+    background-color: var(--terminal-black);
+    border: var(--border-width) solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 12px 25px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 0 7px var(--neon-green);
+    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s, transform 0.1s;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.terminal-button:hover {
+    background-color: var(--neon-green);
+    color: var(--terminal-black);
+    box-shadow: 0 0 20px var(--neon-green);
+}
+
+.terminal-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 0 5px var(--neon-green);
+}
+
+/* Subtle terminal UI details */
+.terminal-prompt {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 0.9em;
+    color: rgba(57, 255, 20, 0.6);
+}
+
+.terminal-status-bar {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 0.9em;
+    color: rgba(57, 255, 20, 0.6);
+}
+
+/* Specific styles for content within cards */
+.card-content ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.card-content ul li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+.card-content ul li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--neon-green);
+}
+
+.card-content table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-size: 1em;
+}
+
+.card-content th, .card-content td {
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    padding: 10px;
+    text-align: left;
+}
+
+.card-content th {
+    background-color: rgba(57, 255, 20, 0.1);
+    color: var(--neon-green);
+    text-transform: uppercase;
+}
+
+.card-content .image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.card-content .image-gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 1px solid var(--neon-green);
+    box-shadow: 0 0 5px var(--neon-green);
+    transition: transform 0.2s ease;
+}
+
+.card-content .image-gallery img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+/* AI Chat Bubble Styles */
+.chat-container {
+    margin-top: 20px;
+    text-align: left;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.chat-log {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(57, 255, 20, 0.5);
+    padding: 15px;
+    height: 250px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    border-radius: var(--border-radius-sm);
+}
+
+.chat-message {
+    margin-bottom: 8px;
+    line-height: 1.4;
+    font-size: 0.8em;
+}
+
+.chat-message.user {
+    color: var(--neon-green);
+}
+
+.chat-message.ai {
+    color: rgba(57, 255, 20, 0.8);
+}
+
+.chat-input-area {
+    display: flex;
+    gap: 10px;
+}
+
+/* Untuk Chrome, Edge, Safari */
+.chat-log::-webkit-scrollbar {
+    width: 10px;
+    background: #081807; /* Warna dasar track */
+    border-radius: 6px;
+}
+.chat-log::-webkit-scrollbar-thumb {
+    background: #39FF14; /* Warna neon green */
+    border-radius: 6px;
+    box-shadow: 0 0 10px #39FF14, 0 0 2px #39FF14;
+}
+.chat-log::-webkit-scrollbar-thumb:hover {
+    background: #3cff5c; /* Neon lebih terang saat hover */
+}
+
+/* Optional: Ujung atas bawah */
+.chat-log::-webkit-scrollbar-corner {
+    background: #081807;
+}
+
+.chat-log {
+    scrollbar-color: #39FF14 #081807;
+    scrollbar-width: thin;
+}
+
+
+.chat-input-area input[type="text"] {
+    flex-grow: 1;
+    background-color: var(--terminal-black);
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 10px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+    border-radius: var(--border-radius-sm);
+    box-shadow: inset 0 0 5px var(--neon-green);
+}
+
+.chat-input-area button {
+    background-color: var(--terminal-grey);
+    border: var(--border-width) solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 10px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: var(--border-radius-sm);
+    box-shadow: 0 0 5px var(--neon-green);
+    transition: background-color 0.2s, box-shadow 0.2s, color 0.2s;
+}
+
+.chat-input-area button:hover {
+    background-color: var(--neon-green);
+    color: var(--terminal-black);
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 1.6em;
+    }
+    .card-description, .card-content {
+        font-size: 1em;
+    }
+    .card-content table {
+        font-size: 0.9em;
+    }
+    .chat-log {
+        height: 200px;
+    }
+    .chat-input-area input[type="text"] {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .terminal-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
+
