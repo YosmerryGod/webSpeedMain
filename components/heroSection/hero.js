@@ -4,7 +4,7 @@ export function renderHeroSection() {
         <p class="hero-slogan">Where Memes Move at Machine Speed</p>
         <div class="top-hero-buttons">
             <a href="https://t.me/speedshell" class="terminal-button" target="_blank">join_community</a>
-            <a href="pdf.speedshell.xyz" class="terminal-button" target="_blank">document</a>
+            <a href="https://pdf.speedshell.xyz" class="terminal-button" target="_blank">document</a>
 
         </div>
         <div class="ca-display-box">

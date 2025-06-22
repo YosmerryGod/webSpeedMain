@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>SPEED-BRO-AI Terminal v1.0.1</title>
+  <link rel="stylesheet" href="./terminal.css">
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="terminal-window">
+    <div class="terminal-header">
+      <a href="https://linkt.speedshell.xyz" target="_blank" class="terminal-title">
+    SPEED-BRO-AI v1.0.1
+  </a>
+      <span class="terminal-controls">
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+        <span class="terminal-dot"></span>
+      </span>
+    </div>
+    <div class="terminal-chat-area" id="chatArea">
+      <div class="msg sys">[SYSTEM] SPEED-BRO-AI Terminal v1.0.1 initialized.</div>
+      <div class="msg sys">[SYSTEM] All systems operational.</div>
+      <div class="msg sys">[SYSTEM] Type 'help' for available commands.</div>
+      <div class="msg ai">[SPEED-BRO-AI] Greetings, human. I am SPEED-BRO-AI, your terminal-based assistant. How may I assist you today?</div>
+    </div>
+    <form class="terminal-input-area" id="terminalForm" autocomplete="off">
+      <span class="prompt">&gt;</span>
+      <input type="text" class="terminal-input" id="terminalInput" autocomplete="off" placeholder="Type your message..." autofocus>
+      <span class="blinking-cursor"></span>
+    </form>
+    <div class="scanlines"></div>
+  </div>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

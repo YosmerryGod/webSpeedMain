@@ -1,28 +1,29 @@
-/* --- Content Sections --- */
 .terminal-card {
     background-color: rgba(10, 10, 10, 0.8);
     border: var(--border-width) solid var(--neon-green);
     box-shadow: 0 0 10px var(--neon-green), inset 0 0 10px var(--neon-green);
-    padding: 30px;
+    padding: 2em 1.4em;
     border-radius: var(--border-radius-md);
-    width: 90%;
+    width: 100%;
     max-width: 700px;
     position: relative;
-    margin-bottom: 30px;
+    margin-bottom: 2em;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     opacity: 1;
     transform: translateY(0);
+    box-sizing: border-box;
 }
 
 /* Container for expandable content */
 .expandable-content-container {
-    width: 90%;
+    width: 100%;
     max-width: 700px;
     overflow: hidden;
     transition: height 0.7s ease-in-out, opacity 0.7s ease-in-out;
     height: 0;
     opacity: 0;
-    margin-bottom: 30px;
+    margin-bottom: 2em;
+    box-sizing: border-box;
 }
 
 .expandable-content-container.expanded {
@@ -34,7 +35,7 @@
     background-color: rgba(10, 10, 10, 0.8);
     border: var(--border-width) solid var(--neon-green);
     box-shadow: 0 0 10px var(--neon-green), inset 0 0 10px var(--neon-green);
-    padding: 30px;
+    padding: 2em 1.4em;
     border-radius: var(--border-radius-md);
     position: relative;
     margin: 0;
@@ -52,40 +53,28 @@
     opacity: 1;
 }
 
-.terminal-card::before, .expandable-content-card::before {
-    content: '';
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    height: 5px;
-    background-color: rgba(57, 255, 20, 0.2);
-    border-radius: 2px;
-}
-
+.terminal-card::before, .expandable-content-card::before,
 .terminal-card::after, .expandable-content-card::after {
+    left: 10px; right: 10px; height: 5px; border-radius: 2px;
+    background-color: rgba(57, 255, 20, 0.2);
     content: '';
     position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
-    height: 5px;
-    background-color: rgba(57, 255, 20, 0.2);
-    border-radius: 2px;
 }
+.terminal-card::before, .expandable-content-card::before { top: 10px; }
+.terminal-card::after, .expandable-content-card::after { bottom: 10px; }
 
 .card-title {
     font-size: 2em;
-    margin-bottom: 20px;
+    margin-bottom: 1.1em;
     color: var(--neon-green);
     text-align: center;
     text-transform: uppercase;
 }
 
 .card-description, .card-content {
-    font-size: 1.1em;
+    font-size: 1.13em;
     line-height: 1.6;
-    margin-bottom: 30px;
+    margin-bottom: 2em;
     text-align: center;
     color: rgba(57, 255, 20, 0.9);
 }
@@ -94,14 +83,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 1em;
 }
 
 .terminal-button {
     background-color: var(--terminal-black);
     border: var(--border-width) solid var(--neon-green);
     color: var(--neon-green);
-    padding: 12px 25px;
+    padding: 0.85em 1.8em;
     font-family: 'Share Tech Mono', monospace;
     font-size: 1em;
     cursor: pointer;
@@ -125,24 +114,14 @@
     box-shadow: 0 0 5px var(--neon-green);
 }
 
-/* Subtle terminal UI details */
-.terminal-prompt {
+.terminal-prompt, .terminal-status-bar {
     position: absolute;
-    top: 15px;
-    left: 20px;
     font-size: 0.9em;
     color: rgba(57, 255, 20, 0.6);
 }
+.terminal-prompt { top: 15px; left: 20px; }
+.terminal-status-bar { bottom: 15px; right: 20px; }
 
-.terminal-status-bar {
-    position: absolute;
-    bottom: 15px;
-    right: 20px;
-    font-size: 0.9em;
-    color: rgba(57, 255, 20, 0.6);
-}
-
-/* Specific styles for content within cards */
 .card-content ul {
     list-style-type: none;
     padding: 0;
@@ -150,13 +129,11 @@
     margin: 0 auto;
     max-width: 90%;
 }
-
 .card-content ul li {
     margin-bottom: 10px;
     padding-left: 20px;
     position: relative;
 }
-
 .card-content ul li::before {
     content: '>';
     position: absolute;
@@ -165,18 +142,20 @@
 }
 
 .card-content table {
-    width: 90%;
+    width: 100%;
+    max-width: 100%;
     margin: 20px auto;
     border-collapse: collapse;
     font-size: 1em;
+    overflow-x: auto;
+    display: block;
+    box-sizing: border-box;
 }
-
 .card-content th, .card-content td {
     border: 1px solid rgba(57, 255, 20, 0.3);
     padding: 10px;
     text-align: left;
 }
-
 .card-content th {
     background-color: rgba(57, 255, 20, 0.1);
     color: var(--neon-green);
@@ -190,16 +169,16 @@
     gap: 15px;
     margin-top: 20px;
 }
-
 .card-content .image-gallery img {
-    width: 150px;
-    height: 150px;
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    aspect-ratio: 1/1;
     object-fit: cover;
     border: 1px solid var(--neon-green);
     box-shadow: 0 0 5px var(--neon-green);
     transition: transform 0.2s ease;
 }
-
 .card-content .image-gallery img:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px var(--neon-green);
@@ -211,63 +190,51 @@
     text-align: left;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
 }
 
 .chat-log {
     background-color: rgba(0, 0, 0, 0.6);
     border: 1px solid rgba(57, 255, 20, 0.5);
-    padding: 15px;
+    padding: 1em;
     height: 250px;
     overflow-y: auto;
     margin-bottom: 10px;
     border-radius: var(--border-radius-sm);
+    box-sizing: border-box;
 }
 
 .chat-message {
     margin-bottom: 8px;
     line-height: 1.4;
-    font-size: 0.8em;
+    font-size: 0.98em;
 }
 
-.chat-message.user {
-    color: var(--neon-green);
-}
-
-.chat-message.ai {
-    color: rgba(57, 255, 20, 0.8);
-}
+.chat-message.user { color: var(--neon-green); }
+.chat-message.ai { color: rgba(57, 255, 20, 0.8); }
 
 .chat-input-area {
     display: flex;
     gap: 10px;
+    box-sizing: border-box;
 }
 
-/* Untuk Chrome, Edge, Safari */
+/* Scrollbar custom */
 .chat-log::-webkit-scrollbar {
     width: 10px;
-    background: #081807; /* Warna dasar track */
+    background: #081807;
     border-radius: 6px;
 }
 .chat-log::-webkit-scrollbar-thumb {
-    background: #39FF14; /* Warna neon green */
+    background: #39FF14;
     border-radius: 6px;
     box-shadow: 0 0 10px #39FF14, 0 0 2px #39FF14;
 }
-.chat-log::-webkit-scrollbar-thumb:hover {
-    background: #3cff5c; /* Neon lebih terang saat hover */
-}
-
-/* Optional: Ujung atas bawah */
-.chat-log::-webkit-scrollbar-corner {
-    background: #081807;
-}
-
-.chat-log {
-    scrollbar-color: #39FF14 #081807;
-    scrollbar-width: thin;
-}
-
+.chat-log::-webkit-scrollbar-thumb:hover { background: #3cff5c; }
+.chat-log::-webkit-scrollbar-corner { background: #081807; }
+.chat-log { scrollbar-color: #39FF14 #081807; scrollbar-width: thin; }
 
 .chat-input-area input[type="text"] {
     flex-grow: 1;
@@ -279,6 +246,7 @@
     font-size: 1em;
     border-radius: var(--border-radius-sm);
     box-shadow: inset 0 0 5px var(--neon-green);
+    box-sizing: border-box;
 }
 
 .chat-input-area button {
@@ -301,27 +269,25 @@
 }
 
 @media (max-width: 768px) {
-    .card-title {
-        font-size: 1.6em;
+    .terminal-card, .expandable-content-container, .expandable-content-card {
+        max-width: 98vw;
+        padding: 1em 0.5em;
     }
-    .card-description, .card-content {
-        font-size: 1em;
-    }
-    .card-content table {
-        font-size: 0.9em;
-    }
-    .chat-log {
-        height: 200px;
-    }
-    .chat-input-area input[type="text"] {
-        font-size: 0.9em;
-    }
+    .card-title { font-size: 1.2em; }
+    .card-description, .card-content { font-size: 0.97em; }
+    .card-content table { font-size: 0.9em; }
+    .chat-container { max-width: 99vw; }
+    .chat-log { height: 180px; }
+    .chat-input-area input[type="text"] { font-size: 0.95em; }
 }
 
 @media (max-width: 480px) {
-    .terminal-button {
-        padding: 10px 20px;
-        font-size: 0.9em;
+    .terminal-card, .expandable-content-container, .expandable-content-card {
+        max-width: 99vw;
+        padding: 0.7em 0.15em;
+        margin-bottom: 1.1em;
     }
+    .card-title { font-size: 1em; }
+    .terminal-button { padding: 10px 16px; font-size: 0.92em; }
+    .chat-log { height: 120px; }
 }
-

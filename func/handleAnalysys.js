@@ -132,7 +132,7 @@ export async function getGeminiAnalysis(symbol = 'BTCUSDT') {
     return formatted.trim();
   } catch (error) {
     console.error('Error in getGeminiAnalysis:', error);
-    return '❌ NeiroBean Failed to generate analysis.';
+    return '❌ SPEEDBRO Failed to generate analysis.';
   }
 }
 
