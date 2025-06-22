@@ -8,7 +8,7 @@ export function renderHeroSection() {
 
         </div>
         <div class="ca-display-box">
-            <span class="ca-address" id="contractAddress">0x00000000000dead</span>
+            <span class="ca-address" id="contractAddress">0x4962ece46da4cb50011f5c64b651cce2de784444</span>
             <button class="copy-button" id="copyCAButton">Copy</button>
         </div>
     `;
