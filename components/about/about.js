@@ -41,8 +41,8 @@ export function setupAboutSectionListeners() {
             const contentId = event.target.dataset.contentId;
             showSpecificContent(contentId);
             // Attach listener Chat AI setelah section muncul
-            if(contentId === 'chatWithAi') {
-                window.location.href = '/terminal'; // bisa juga pakai window.open('/terminal', '_blank') jika mau tab baru
+            if (contentId === 'chatWithAi') {
+                window.location.href = 'https://terminal.speedshell.xyz';
                 return;
             }
 
